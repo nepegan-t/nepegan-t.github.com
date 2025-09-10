@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para mi niña de cachetitos bonitos</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            overflow-x: hidden;
+            background: linear-gradient(to bottom, #87CEEB 0%, #87CEEB 60%, #90EE90 60%, #32CD32 100%);
+            min-height: 100vh;
+        }
+
+        .scene {
+            position: relative;
+            width: 100%;
+            min-height: 100vh;
+            overflow: hidden;
+        }
+
+        .sun {
+            position: absolute;
+            top: 50px;
+            right: 100px;
+            width: 80px;
+            height: 80px;
+            background: radial-gradient(circle, #FFD700 0%, #FFA500 100%);
+            border-radius: 50%;
+            box-shadow: 0 0 30px #FFD700;
+            animation: sunGlow 3s ease-in-out infinite alternate;
+        }
+
+        @keyframes sunGlow {
+            0% { box-shadow: 0 0 30px #FFD700; }
+            100% { box-shadow: 0 0 50px #FFD700; }
+        }
+
+        .cloud {
+            position: absolute;
+            background: white;
+            border-radius: 50px;
+            opacity: 0.8;
+            animation: float 20s linear infinite;
+        }
+
+        .cloud::before {
+            content: '';
+            position: absolute;
+            background: white;
+            border-radius: 50px;
+        }
+
+        .cloud1 {
+            width: 80px;
+            height: 40px;
+            top: 80px;
+            left: -100px;
+        }
+
+        .cloud1::before {
+            width: 50px;
+            height: 50px;
+            top: -25px;
+            left: 10px;
+        }
+
+        .cloud2 {
+            width: 60px;
+            height: 30px;
+            top: 120px;
+            left: -80px;
+            animation-delay: -5s;
+        }
+
+        .cloud2::before {
+            width: 40px;
+            height: 40px;
+            top: -20px;
+            left: 15px;
+        }
+
+        .cloud3 {
+            width: 100px;
+            height: 50px;
+            top: 100px;
+            left: -120px;
+            animation-delay: -10s;
+        }
+
+        .cloud3::before {
+            width: 60px;
+            height: 60px;
+            top: -30px;
+            left: 20px;
+        }
+
+        @keyframes float {
+            0% { transform: translateX(-100px); }
+            100% { transform: translateX(calc(100vw + 100px)); }
+        }
+
+        .grass {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 40vh;
+            background: linear-gradient(to bottom, #90EE90 0%, #32CD32 100%);
+        }
+
+        .flower {
+            position: absolute;
+            animation: sway 3s ease-in-out infinite;
+        }
+
+        @keyframes sway {
+            0%, 100% { transform: rotate(-2deg); }
+            50% { transform: rotate(2deg); }
+        }
+
+        .rose {
+            width: 30px;
+            height: 30px;
+        }
+
+        .rose-head {
+            width: 25px;
+            height: 25px;
+            background: radial-gradient(circle, #FF69B4 0%, #DC143C 100%);
+            border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+            position: relative;
+            transform: rotate(45deg);
+        }
+
+        .rose-stem {
+            width: 3px;
+            height: 40px;
+            background: #228B22;
+            position: absolute;
+            bottom: -35px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .tulip {
+            width: 25px;
+            height: 35px;
+        }
+
+        .tulip-head {
+            width: 20px;
+            height: 25px;
+            border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+            position: relative;
+        }
+
+        .tulip-stem {
+            width: 3px;
+            height: 30px;
+            background: #228B22;
+            position: absolute;
+            bottom: -25px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .tulip1 { background: #FF1493; }
+        .tulip2 { background: #9370DB; }
+        .tulip3 { background: #FFD700; }
+        .tulip4 { background: #FF4500; }
+        .tulip5 { background: #00CED1; }
+        .tulip6 { background: #FF69B4; }
+        .tulip7 { background: #32CD32; }
+
+        .snoopy {
+            position: absolute;
+            bottom: 100px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 80px;
+        }
+
+        .snoopy-body {
+            width: 50px;
+            height: 60px;
+            background: white;
+            border: 2px solid black;
+            border-radius: 20px;
+            position: relative;
+        }
+
+        .snoopy-head {
+            width: 40px;
+            height: 35px;
+            background: white;
+            border: 2px solid black;
+            border-radius: 20px;
+            position: absolute;
+            top: -20px;
+            left: 5px;
+        }
+
+        .snoopy-ear {
+            width: 15px;
+            height: 20px;
+            background: black;
+            border-radius: 50%;
+            position: absolute;
+            top: 5px;
+            right: -5px;
+        }
+
+        .snoopy-nose {
+            width: 8px;
+            height: 8px;
+            background: black;
+            border-radius: 50%;
+            position: absolute;
+            top: 15px;
+            left: 30px;
+        }
+
+        .heart {
+            position: absolute;
+            animation: heartFloat 4s ease-in-out infinite;
+        }
+
+        .heart::before,
+        .heart::after {
+            content: '';
+            width: 20px;
+            height: 32px;
+            background: #FF1493;
+            border-radius: 20px 20px 0 0;
+            position: absolute;
+            transform: rotate(-45deg);
+            transform-origin: 0 100%;
+        }
+
+        .heart::after {
+            transform: rotate(45deg);
+            transform-origin: 100% 100%;
+        }
+
+        @keyframes heartFloat {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(10deg); }
+        }
+
+        .message-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.5s ease;
+        }
+
+        .message-container.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .message-box {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            max-width: 80%;
+            max-height: 80%;
+            overflow-y: auto;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            text-align: left;
+            font-size: 16px;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        .message-box h2 {
+            color: #DC143C;
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            background: #DC143C;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            cursor: pointer;
+            font-size: 18px;
+        }
+
+        .show-message-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #DC143C;
+            color: white;
+            border: none;
+            padding: 15px 25px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 16px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            z-index: 999;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+    </style>
+</head>
+<body>
+    <div class="scene">
+        <!-- Sol -->
+        <div class="sun"></div>
+
+        <!-- Nubes -->
+        <div class="cloud cloud1"></div>
+        <div class="cloud cloud2"></div>
+        <div class="cloud cloud3"></div>
+
+        <!-- Pasto -->
+        <div class="grass"></div>
+
+        <!-- Flores (se generarán con JavaScript) -->
+
+        <!-- Snoopy -->
+        <div class="snoopy">
+            <div class="snoopy-body">
+                <div class="snoopy-head">
+                    <div class="snoopy-ear"></div>
+                    <div class="snoopy-nose"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Corazones (se generarán con JavaScript) -->
+    </div>
+
+    <!-- Botón para mostrar mensaje -->
+    <button class="show-message-btn" onclick="showMessage()">💌 Leer Mensaje</button>
+
+    <!-- Contenedor del mensaje -->
+    <div class="message-container" id="messageContainer">
+        <div class="message-box">
+            <button class="close-btn" onclick="hideMessage()">&times;</button>
+            <h2>Para mi niña de cachetitos bonitos 💕</h2>
+            <p>Hola mi niña de cachetitos bonitos. No sé como iniciar esto, no soy de las personas que se prepara un diálogo o palabras antes de decirlas, porque prefiero expresarme hacia ti, diciéndote y mostrándome lo que estoy sintiendo en ese momento, aunque probablemente las palabras sean confusas y mi manera de expresarme no sea la mejor, intento que sea lo más grata posible.</p>
+            
+            <p>Sé que probablemente sea tarde para esto. He intento mil maneras de poder crearte cartas, dibujos y pequeños detalles que te puedan hacer tener un bonito día y a través de ello mostrarte pedacito de lo que siento.</p>
+            
+            <p>Yo sé que he cometido muchos errores en nuestra relación, sé que he cometido faltas graves y he tomado decisiones demasiado estúpidas que no tendrían que ser accionadas. Créeme que me arrepiento por no haber sido suficiente para ti, de alguna u otra manera, yo sabía que te desilusionaría, pero también tuve esa fe en que mi pasado no pudiera afectar. Porque desde que tomé la decisión de entregarme a ti y de bajar toda guardia y quedar a tu disposición, yo soy alguien nuevo totalmente. Alguien que solo quiere estar para ti en todos los aspectos que sea necesario. Quiero que te sientas cómoda, feliz, dichosa, querida, consentida, segura y sobre todo amada por este loco que es capaz de todo por ti.</p>
+            
+            <p>Sé que esto para ti solo son palabras, y lo son. Pero intento siempre la manera de mostrarte mi amor y que de alguna u otra forma yo quiero estar siempre a tu lado, quiero ser mejor persona que ayer, no quiero cometer los mismos errores de ayer, no quiero tomar las decisiones malas que tomé anteriormente. Solo quiero ser ese muchacho que nunca se rindió por poder tenerte, porque esto para mí es nuevo, tengo miedo, tengo ansias, tengo nervios de lo que pueda suceder, pero nada se va a comparar con el amor, la pasión y el deseo que tengo de pasar mi vida entera a tu lado.</p>
+            
+            <p><strong>Solo déjame ser mejor persona y amoldarme a tus deseos, déjame ser siempre de tu agrado y déjame mostrarte que sobre todas las cosas siempre serás tú mi elegida.</strong></p>
+        </div>
+    </div>
+
+    <script>
+        // Generar rosas rojas
+        function createRoses() {
+            for (let i = 0; i < 10; i++) {
+                const rose = document.createElement('div');
+                rose.className = 'flower rose';
+                rose.style.bottom = Math.random() * 200 + 50 + 'px';
+                rose.style.left = Math.random() * 90 + 5 + '%';
+                rose.style.animationDelay = Math.random() * 3 + 's';
+                
+                rose.innerHTML = `
+                    <div class="rose-head"></div>
+                    <div class="rose-stem"></div>
+                `;
+                
+                document.querySelector('.scene').appendChild(rose);
+            }
+        }
+
+        // Generar tulipanes de colores
+        function createTulips() {
+            const colors = ['tulip1', 'tulip2', 'tulip3', 'tulip4', 'tulip5', 'tulip6', 'tulip7'];
+            
+            for (let i = 0; i < 7; i++) {
+                const tulip = document.createElement('div');
+                tulip.className = 'flower tulip';
+                tulip.style.bottom = Math.random() * 180 + 60 + 'px';
+                tulip.style.left = Math.random() * 90 + 5 + '%';
+                tulip.style.animationDelay = Math.random() * 3 + 's';
+                
+                tulip.innerHTML = `
+                    <div class="tulip-head ${colors[i]}"></div>
+                    <div class="tulip-stem"></div>
+                `;
+                
+                document.querySelector('.scene').appendChild(tulip);
+            }
+        }
+
+        // Generar corazones flotantes
+        function createHearts() {
+            for (let i = 0; i < 8; i++) {
+                const heart = document.createElement('div');
+                heart.className = 'heart';
+                heart.style.top = Math.random() * 60 + 10 + '%';
+                heart.style.left = Math.random() * 90 + 5 + '%';
+                heart.style.animationDelay = Math.random() * 4 + 's';
+                heart.style.animationDuration = (Math.random() * 2 + 3) + 's';
+                
+                document.querySelector('.scene').appendChild(heart);
+            }
+        }
+
+        // Mostrar mensaje
+        function showMessage() {
+            document.getElementById('messageContainer').classList.add('show');
+        }
+
+        // Ocultar mensaje
+        function hideMessage() {
+            document.getElementById('messageContainer').classList.remove('show');
+        }
+
+        // Inicializar la escena
+        document.addEventListener('DOMContentLoaded', function() {
+            createRoses();
+            createTulips();
+            createHearts();
+        });
+
+        // Cerrar mensaje con tecla ESC
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                hideMessage();
+            }
+        });
+    </script>
+</body>
+</html>
